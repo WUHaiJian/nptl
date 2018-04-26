@@ -8,7 +8,7 @@ LOCAL_MODULE_FILENAME := libbiosign
 LOCAL_C_INCLUDES := \
 	$(LOCAL_BASE_CODE_PATH)/native/libFpEts/EgisLibModule/MatchingAlgorithm/inc/
 LOCAL_SRC_FILES := \
-	$(LOCAL_BASE_CODE_PATH)/native/libFpEts/EgisLibModule/G3AlgoLib/NONTZ/libEgisG3Algorithm_arm64-v8a.a	
+	$(LOCAL_BASE_CODE_PATH)/native/libFpEts/EgisLibModule/G3AlgoLib/NONTZ/libEgisG3Algorithm_arm64-v8a_standard.a	
 include $(PREBUILT_STATIC_LIBRARY)
 
 
@@ -51,14 +51,11 @@ LOCAL_CFLAGS += -D__ET538__
 LOCAL_CFLAGS += -DHW_HAWAII_Y6
 LOCAL_CFLAGS += -D__LINUX__
 LOCAL_CFLAGS += -v
-LOCAL_CFLAGS += -DTEEI -DTZ_MODE 
+LOCAL_CFLAGS += -DTEEI -DTZ_MODE
+LOCAL_CFLAGS += -DG3_MATCHER 
 
 LOCAL_STATIC_LIBRARIES += libbiosign
 					
-#LOCAL_SHARED_LIBRARIES += libc libcutils
-
-#LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog
-
 LOCAL_MODULE_TAGS := eng
 LOCAL_MODULE := Talgo
 include $(BUILD_EXECUTABLE)
